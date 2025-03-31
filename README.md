@@ -18,6 +18,9 @@ This project explores a mirrored nplus-pwell diode layout for improving ESD (Ele
 - Heat was more evenly distributed, indicating improved thermal handling
 - Some edge hotspots appeared due to layout asymmetry, with further refinement possible
 
+## Report 
+
+[View Project Report (PDF)](Report/EE165%20-%20Project%20Report%20Tyler%20Chargualaf%20%26%20Neha%20Agrawal.pdf)
 
 ## Notes
 - This repository serves as a record of simulation setup, project documentation, and analysis.

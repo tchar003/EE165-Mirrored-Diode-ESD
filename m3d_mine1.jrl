@@ -1,0 +1,44 @@
+;; UCR EE165 Lab2 Modified By Cheng
+;; (journal:on "m3d_mine.jrl")
+;; "m3 ...
+(sdeio:read-tdr-bnd "diode_bnd.tdr")
+;; #t
+(sdegeo:initialize-contact-sets)
+;; ()
+(sde:refinement-init-scm-binding)
+;; ()
+(sde:workplanes-init-scm-binding)
+;; ()
+(sdegeo:set-auto-region-naming OFF)
+;; #t
+(sdedr:define-refeval-window "RefEvalWin_global" "Rectangle"  (position  -0.9122394323349 -0.7076798081398 0)  (position  20.345636367798 6 0) )
+;; #[body 10 1]
+(sdedr:define-refeval-window "RefEvalWin_nwell" "Rectangle"  (position  -0.44674497842789 -0.27056720852852 0)  (position  1.7657692432404 6 0) )
+;; #[body 11 1]
+(sdedr:define-refeval-window "RefEvalWin_channel" "Rectangle"  (position  0.49514442682266 -0.072981245815754 0)  (position  -0.030388358980417 6 0) )
+;; #[body 12 1]
+(sdedr:define-refeval-window "RefEvalWin_gate" "Rectangle"  (position  -0.090562343597412 0.1 0)  (position  0.36938488483429 2.9 0) )
+;; #[body 13 1]
+(sdedr:define-refinement-size "RefinementDefinition_global" 0.5 0.5 0.1 0.1 )
+;; #t
+(sdedr:define-refinement-placement "RefinementPlacement_global" "RefinementDefinition_global" "RefEvalWin_global" )
+;; #t
+(sdedr:define-refinement-size "RefinementDefinition_nwell" 0.5 0.5 0.01 0.01 )
+;; #t
+(sdedr:define-refinement-placement "RefinementPlacement_nwell" "RefinementDefinition_nwell" "RefEvalWin_nwell" )
+;; #t
+(sdedr:define-refinement-function "RefinementDefinition_nwell" "DopingConcentration" "MaxTransDiff" 1)
+;; #t
+(sdedr:define-multibox-size "MultiboxDefinition_channel" 0.5 0.5 0.1 0.01 1 1.4 )
+;; #t
+(sdedr:define-multibox-placement "MultiboxPlacement_channel" "MultiboxDefinition_channel" "RefEvalWin_channel" )
+;; #t
+(sdedr:define-multibox-size "MultiboxDefinition_gate" 0.05 0.05 0.003 0.003 1 1 )
+;; #t
+(sdedr:define-multibox-placement "MultiboxPlacement_gate" "MultiboxDefinition_gate" "RefEvalWin_gate" )
+;; #t
+(sdedr:define-submesh-placement "ExternalProfilePlacement_nwell" "ExternalProfileDefinition_nwell" "RefEvalWin_nwell" "DecayLength" 0 "NoReplace")
+;; #t
+(sdedr:define-submesh "ExternalProfileDefinition_nwell" "diode_fps.tdr")
+;; #t
+;; (journal:off)
